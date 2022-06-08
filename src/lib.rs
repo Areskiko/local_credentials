@@ -27,7 +27,7 @@ pub fn get_credentials(file_name: Option<&str>) -> Result<Credentials, String> {
     let contents = fs::read_to_string(file);
     match contents {
         Ok(contents) => {
-            tracing::debug!("Successfully read credentials from {}", file);
+            tracing::info!("Successfully read credentials from {}", file);
             let mut lines = contents.lines();
             let username = lines.next().unwrap();
             let password = lines.next().unwrap();
