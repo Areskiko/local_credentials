@@ -85,7 +85,7 @@ pub async fn async_get_credentials(file: Option<&str>) -> Result<Credentials, St
     let contents = tokio::fs::read_to_string(file).await;
     match contents {
         Ok(contents) => {
-            tracing::debug!("Successfully read credentials from {}", file);
+            tracing::info!("Successfully read credentials from {}", file);
             let mut lines = contents.lines();
             let username = lines.next().unwrap();
             let password = lines.next().unwrap();
